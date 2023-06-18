@@ -20,13 +20,15 @@ const val BASE_HTML = """
         font-size: 32px;
     }
 </style>
+
 <html>
-    <head>
-        <title>{{TITLE}}</title>
-    </head>
-    <body>
-        {{BODY}}
-    </body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{{TITLE}}</title>
+</head>
+<body>
+    {{BODY}}
+</body>
 </html>
 """
 
@@ -64,7 +66,7 @@ class RouteHandler : RouterNanoHTTPD.DefaultHandler() {
     private fun pageFromPath(path: File, searchPath: String): Page {
 
         if (path.isDirectory) { // lists out directory in simple list
-            val list = path.list()
+            val list = path.list()?.sorted()
             val builder = StringBuilder()
             val dirEscaped = Html.fromHtml(searchPath, Html.FROM_HTML_MODE_LEGACY)
 
@@ -72,17 +74,34 @@ class RouteHandler : RouterNanoHTTPD.DefaultHandler() {
             if (list == null) {
                 builder.append("<ol><li>Empty directory</li></ol>")
             } else {
-                builder.append("<ol>")
-                for (child in list) {
-                    var childEscaped = Html.fromHtml(child, Html.FROM_HTML_MODE_LEGACY).toString()
+                val baseUrl = "http://localhost:$PORT/browse"
 
+                builder.append("<ol>")
+
+                // adds ".."
+                if (searchPath != "") {
+                    val parent: String? = File(searchPath).parent
+                    var parentUrl = baseUrl
+                    if (parent != "" && parent != null) {
+                        parentUrl += "/" + URLEncoder.encode(parent, "utf-8")
+                    }
+                    builder.append("""<li><a href="$parentUrl">(Back)</a></li>""")
+                }
+
+                // walk directory
+                for (child in list) {
+                    var childDisplay = Html.fromHtml(child, Html.FROM_HTML_MODE_LEGACY).toString()
                     val childPath = File(searchPath, child)
                     if (childPath.isDirectory) {
-                        childEscaped += "/"
+                        childDisplay += "/"
                     }
 
-                    val childUrl = "http://localhost:$PORT/browse/${URLEncoder.encode(searchPath, "utf-8")}/${URLEncoder.encode(child, "utf-8")}"
-                    builder.append("""<li><a href="$childUrl">${childEscaped}</a></li>""")
+                    var childUrl = baseUrl
+                    if (searchPath != "") {
+                        childUrl += "/" + URLEncoder.encode(searchPath, "utf-8")
+                    }
+                    childUrl += "/" + URLEncoder.encode(child, "utf-8")
+                    builder.append("""<li><a href="$childUrl">${childDisplay}</a></li>""")
                 }
                 builder.append("</ol>")
             }
