@@ -8,7 +8,7 @@ import fi.iki.elonen.router.RouterNanoHTTPD;
 import java.io.IOException;
 
 public class Router extends RouterNanoHTTPD {
-    private Context context;
+    private final Context context;
     public static String contentType;
 
     public Router(Integer port, Context context) throws IOException {
@@ -18,10 +18,6 @@ public class Router extends RouterNanoHTTPD {
         contentType = new ContentType("; charset=UTF-8").getContentTypeHeader();
         addMappings();
         start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
     }
 
     @Override

@@ -26,6 +26,7 @@ public class Service extends android.app.Service {
             server = new Router(PORT, this);
         } catch (IOException e) {
             Log.w("Service", "The Server was unable to start");
+            Log.w("Service", e.getLocalizedMessage());
             e.printStackTrace();
         }
     }

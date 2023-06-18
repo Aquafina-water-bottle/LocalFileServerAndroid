@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static final String CHANNEL_ID = "RayrTheII.LocalFileServer";
+    public static final String CHANNEL_ID = "RayrTheIILocalFileServer";
     private NotificationManager notificationManager;
     private ActivityResultLauncher<String> requestPermissionLauncher;
 
