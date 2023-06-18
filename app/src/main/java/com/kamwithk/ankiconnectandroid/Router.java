@@ -1,6 +1,7 @@
-package com.kamwithk.ankiconnectandroid.routing;
+package com.kamwithk.ankiconnectandroid;
 
 import android.content.Context;
+
 import fi.iki.elonen.NanoHTTPD;
 import fi.iki.elonen.router.RouterNanoHTTPD;
 
@@ -25,10 +26,6 @@ public class Router extends RouterNanoHTTPD {
 
     @Override
     public void addMappings() {
-        addRoute("/", RouteHandler.class, this.context);
-        addRoute("/localaudio/(.)+", LocalAudioRouteHandler.class, this.context);
-        // for some reason, none of these work, so the above is used instead
-        // addRoute("/localaudio/:source/(.)+", LocalAudioRouteHandler.class, this.context);
-        // addRoute("/localaudio/:source/:file", LocalAudioRouteHandler.class, this.context);
+        addRoute("/(.)+", LocalAudioRouteHandler.class, this.context);
     }
 }

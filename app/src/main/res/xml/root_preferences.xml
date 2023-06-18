@@ -1,6 +1,9 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!--
+    Currently completely empty!
+
     <PreferenceCategory app:title="@string/settings_permissions_header">
 
         <Preference
@@ -31,4 +34,6 @@
             app:summary="@string/get_dir_path_title_summary" />
 
     </PreferenceCategory>
+    -->
+
 </PreferenceScreen>

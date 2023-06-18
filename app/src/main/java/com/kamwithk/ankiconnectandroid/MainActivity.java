@@ -23,8 +23,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
-import com.kamwithk.ankiconnectandroid.ankidroid_api.IntegratedAPI;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
         // toolbar support
         Toolbar toolbar = findViewById(R.id.materialToolbar);
         setSupportActionBar(toolbar);
-
-        IntegratedAPI.authenticate(this);
 
         NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, "Ankiconnect Android", NotificationManager.IMPORTANCE_DEFAULT);
         notificationManager = getSystemService(NotificationManager.class);

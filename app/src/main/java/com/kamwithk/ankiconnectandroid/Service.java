@@ -8,14 +8,13 @@ import android.os.IBinder;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
-import com.kamwithk.ankiconnectandroid.routing.Router;
 
 import java.io.IOException;
 
 import static com.kamwithk.ankiconnectandroid.MainActivity.CHANNEL_ID;
 
 public class Service extends android.app.Service {
-    public static final int PORT = 8765;
+    public static final int PORT = 8976;
 
     private Router server;
 
@@ -26,7 +25,7 @@ public class Service extends android.app.Service {
         try {
             server = new Router(PORT, this);
         } catch (IOException e) {
-            Log.w("Httpd", "The Server was unable to start");
+            Log.w("Service", "The Server was unable to start");
             e.printStackTrace();
         }
     }
@@ -36,14 +35,10 @@ public class Service extends android.app.Service {
     public int onStartCommand(Intent intent, int flags, int startId) { // Every time start is called
         Intent notificationIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
-        } else {
-            pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        }
+        pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Ankiconnect Android")
+                .setContentTitle("Local File Server")
                 .setSmallIcon(R.mipmap.app_launcher)
                 .setContentIntent(pendingIntent)
                 .setOngoing(true)
