@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startService() {
-        val serviceIntent = Intent(this, Service::class.java)
+        val serviceIntent = Intent(this, FileService::class.java)
         ContextCompat.startForegroundService(this, serviceIntent)
     }
 
@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun stopServiceBtn(view: View?) {
-        val serviceIntent = Intent(this, Service::class.java)
+        val serviceIntent = Intent(this, FileService::class.java)
         stopService(serviceIntent)
     }
 

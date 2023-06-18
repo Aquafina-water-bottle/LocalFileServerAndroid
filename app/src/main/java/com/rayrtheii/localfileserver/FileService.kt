@@ -6,11 +6,10 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
-import com.rayrtheii.localfileserver.MainActivity
 
 const val PORT = 8976
 
-class Service : Service() {
+class FileService : Service() {
     private lateinit var server: Router
 
     override fun onCreate() { // Only one time

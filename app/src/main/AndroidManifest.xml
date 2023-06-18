@@ -48,7 +48,7 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
 
-        <service android:name="com.rayrtheii.localfileserver.Service" />
+        <service android:name="com.rayrtheii.localfileserver.FileService" />
     </application>
 
 </manifest>
