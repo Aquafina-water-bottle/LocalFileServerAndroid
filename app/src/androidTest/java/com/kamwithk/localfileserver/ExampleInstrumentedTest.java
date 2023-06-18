@@ -1,4 +1,4 @@
-package com.kamwithk.ankiconnectandroid;
+package com.rayrtheii.localfileserver;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -20,6 +20,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.kamwithk.ankiconnectandroid", appContext.getPackageName());
+        assertEquals("com.rayrtheii.localfileserver", appContext.getPackageName());
     }
 }

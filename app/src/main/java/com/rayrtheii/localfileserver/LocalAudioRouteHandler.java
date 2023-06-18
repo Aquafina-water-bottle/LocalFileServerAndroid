@@ -1,9 +1,4 @@
-package com.kamwithk.ankiconnectandroid;
-
-import static fi.iki.elonen.NanoHTTPD.MIME_PLAINTEXT;
-import static fi.iki.elonen.NanoHTTPD.newFixedLengthResponse;
-
-import android.content.Context;
+package com.rayrtheii.localfileserver;
 
 import java.util.Map;
 
@@ -35,7 +30,6 @@ public class LocalAudioRouteHandler extends RouterNanoHTTPD.DefaultHandler {
 
     public NanoHTTPD.Response get(RouterNanoHTTPD.UriResource uriResource, Map<String, String> urlParams, NanoHTTPD.IHTTPSession session) {
         // setup ???
-        // TODO this looks like a hack (same with the main handler!)
         //if (routing == null) {
         //    Context context = uriResource.initParameter(0, Context.class); // ???
         //    routing = new LocalAudioAPIRouting(context);

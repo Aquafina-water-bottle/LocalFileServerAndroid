@@ -3,22 +3,22 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
-        applicationId "com.kamwithk.ankiconnectandroid"
+        applicationId "com.rayrtheii.localfileserver"
         minSdk 26
-        targetSdk 33
-        versionCode 11
-        versionName "1.11"
+        targetSdk 34
+        versionCode 1
+        versionName "0.1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
-            }
-        }
+        //javaCompileOptions {
+        //    annotationProcessorOptions {
+        //        arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+        //    }
+        //}
 
     }
 
@@ -40,17 +40,10 @@ dependencies {
     implementation 'androidx.core:core:1.9.0'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'org.nanohttpd:nanohttpd:2.3.1'
     implementation 'org.nanohttpd:nanohttpd-nanolets:2.3.1'
-    implementation 'com.github.ankidroid:Anki-Android:api-v1.1.0'
     implementation 'org.jsoup:jsoup:1.14.3'
     implementation 'androidx.preference:preference:1.2.0'
-
-    def room_version = "2.5.0"
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

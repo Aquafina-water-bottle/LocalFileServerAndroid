@@ -1,4 +1,4 @@
-package com.kamwithk.ankiconnectandroid;
+package com.rayrtheii.localfileserver;
 
 import android.content.Context;
 

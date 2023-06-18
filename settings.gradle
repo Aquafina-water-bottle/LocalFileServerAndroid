@@ -6,5 +6,5 @@ dependencyResolutionManagement {
         maven { url "https://jitpack.io" }
     }
 }
-rootProject.name = "Ankiconnect Android"
+rootProject.name = "Local File Server"
 include ':app'

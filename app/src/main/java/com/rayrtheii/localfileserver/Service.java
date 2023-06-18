@@ -1,4 +1,4 @@
-package com.kamwithk.ankiconnectandroid;
+package com.rayrtheii.localfileserver;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -11,7 +11,7 @@ import androidx.core.app.NotificationCompat;
 
 import java.io.IOException;
 
-import static com.kamwithk.ankiconnectandroid.MainActivity.CHANNEL_ID;
+import static com.rayrtheii.localfileserver.MainActivity.CHANNEL_ID;
 
 public class Service extends android.app.Service {
     public static final int PORT = 8976;

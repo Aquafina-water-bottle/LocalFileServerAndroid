@@ -1,4 +1,4 @@
-package com.kamwithk.ankiconnectandroid;
+package com.rayrtheii.localfileserver;
 
 import static android.Manifest.permission.POST_NOTIFICATIONS;
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static final String CHANNEL_ID = "ankiConnectAndroid";
+    public static final String CHANNEL_ID = "RayrTheII.LocalFileServer";
     private NotificationManager notificationManager;
     private ActivityResultLauncher<String> requestPermissionLauncher;
 
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.materialToolbar);
         setSupportActionBar(toolbar);
 
-        NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, "Ankiconnect Android", NotificationManager.IMPORTANCE_DEFAULT);
+        NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, "Local File Server", NotificationManager.IMPORTANCE_DEFAULT);
         notificationManager = getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(notificationChannel);
 

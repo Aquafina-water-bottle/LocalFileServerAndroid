@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kamwithk.ankiconnectandroid">
+    package="com.rayrtheii.localfileserver">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!--
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <!--
-        This permission is required to open another activity from an app in the background
-        (i.e. AnkiConnectAndroid opening AnkiDroid when the kiwi browser is in focus)
-        NOTE: https://developer.android.com/reference/android/Manifest.permission#SYSTEM_ALERT_WINDOW
-        > Very few apps should use this permission; these windows are intended for
-        > system-level interaction with the user.
     -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
-    <queries>
-        <package android:name="com.ichi2.anki" />
-    </queries>
 
     <application
         android:allowBackup="true"
@@ -25,18 +16,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/app_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AnkiconnectAndroid">
+        android:theme="@style/Theme.LocalFileServer">
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.rayrtheii.localfileserver.SettingsActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.rayrtheii.localfileserver.MainActivity"
             android:label="@string/action_settings">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.rayrtheii.localfileserver.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,7 +46,7 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
 
-        <service android:name=".Service" />
+        <service android:name="com.rayrtheii.localfileserver.Service" />
     </application>
 
 </manifest>
