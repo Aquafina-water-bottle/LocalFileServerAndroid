@@ -25,6 +25,6 @@ An extremely simple HTTP server to view locally stored files.
     ```
 
 ## Also consider
-* Using [mokuro.moe](mokuro.moe)
+* Using [mokuro.moe](https://www.mokuro.moe)
 * [Simple HTTP Server](https://play.google.com/store/apps/details?id=com.phlox.simpleserver): A more featureful but closed source variant of this app
 * Running an Apache server on Termux
